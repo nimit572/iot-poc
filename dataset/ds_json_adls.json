@@ -1,0 +1,68 @@
+{
+	"name": "ds_json_adls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(formatDateTime(utcNow(),'yyyy'),'/',formatDateTime(utcNow(),'MM'),'/',formatDateTime(utcNow(),'dd'))",
+					"type": "Expression"
+				},
+				"fileSystem": "rawdata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"messageId": {
+					"type": "integer"
+				},
+				"deviceId": {
+					"type": "string"
+				},
+				"temperature": {
+					"type": "number"
+				},
+				"humidity": {
+					"type": "number"
+				},
+				"EventProcessedUtcTime": {
+					"type": "string"
+				},
+				"PartitionId": {
+					"type": "integer"
+				},
+				"EventEnqueuedUtcTime": {
+					"type": "string"
+				},
+				"IoTHub": {
+					"type": "object",
+					"properties": {
+						"MessageId": {
+							"type": "null"
+						},
+						"CorrelationId": {
+							"type": "null"
+						},
+						"ConnectionDeviceId": {
+							"type": "string"
+						},
+						"ConnectionDeviceGenerationId": {
+							"type": "string"
+						},
+						"EnqueuedTime": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
