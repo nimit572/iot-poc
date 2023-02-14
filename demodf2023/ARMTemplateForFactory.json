@@ -158,6 +158,152 @@
 							"enableStaging": false,
 							"translator": {
 								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Pizzaid",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Pizzaid",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "PizzaTid",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PizzaTid",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "P_Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "P_Name",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "P_Category",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "P_Category",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Ingredients",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Ingredients",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "P_Size",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "P_Size",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "P_Price",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "P_Price",
+											"type": "Double",
+											"physicalType": "float"
+										}
+									},
+									{
+										"source": {
+											"name": "Orderid",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Orderid",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "Order_detid",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Order_detid",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "Quantity",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Quantity",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "P_date",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "P_date",
+											"type": "DateTime",
+											"physicalType": "date"
+										}
+									},
+									{
+										"source": {
+											"name": "T_Time",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "T_Time",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
 								"typeConversion": true,
 								"typeConversionSettings": {
 									"allowDataTruncation": true,
@@ -206,7 +352,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "part-00000-tid-3559077593015423063-7f31acf5-2e74-44fa-a7c4-194eaad2a4b4-74-1-c000.csv",
+						"fileName": {
+							"value": "abcd.cs",
+							"type": "Expression"
+						},
 						"folderPath": "Cleansed/Pizza.csv",
 						"fileSystem": "poc1"
 					},
