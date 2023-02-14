@@ -1,0 +1,69 @@
+{
+	"name": "ds_sql_pizza",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_pizza",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Pizzaid",
+				"type": "varchar"
+			},
+			{
+				"name": "PizzaTid",
+				"type": "varchar"
+			},
+			{
+				"name": "P_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "P_Category",
+				"type": "varchar"
+			},
+			{
+				"name": "Ingredients",
+				"type": "varchar"
+			},
+			{
+				"name": "P_Size",
+				"type": "varchar"
+			},
+			{
+				"name": "P_Price",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Orderid",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Order_detid",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "P_date",
+				"type": "date"
+			},
+			{
+				"name": "T_Time",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "pizza"
+		}
+	}
+}

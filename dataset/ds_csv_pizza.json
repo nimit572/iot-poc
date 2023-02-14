@@ -1,0 +1,73 @@
+{
+	"name": "ds_csv_pizza",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_csv_pizza",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "part-00000-tid-3559077593015423063-7f31acf5-2e74-44fa-a7c4-194eaad2a4b4-74-1-c000.csv",
+				"folderPath": "Cleansed/Pizza.csv",
+				"fileSystem": "poc1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Pizzaid",
+				"type": "String"
+			},
+			{
+				"name": "PizzaTid",
+				"type": "String"
+			},
+			{
+				"name": "P_Name",
+				"type": "String"
+			},
+			{
+				"name": "P_Category",
+				"type": "String"
+			},
+			{
+				"name": "Ingredients",
+				"type": "String"
+			},
+			{
+				"name": "P_Size",
+				"type": "String"
+			},
+			{
+				"name": "P_Price",
+				"type": "String"
+			},
+			{
+				"name": "Orderid",
+				"type": "String"
+			},
+			{
+				"name": "Order_detid",
+				"type": "String"
+			},
+			{
+				"name": "Quantity",
+				"type": "String"
+			},
+			{
+				"name": "P_date",
+				"type": "String"
+			},
+			{
+				"name": "T_Time",
+				"type": "String"
+			}
+		]
+	}
+}
