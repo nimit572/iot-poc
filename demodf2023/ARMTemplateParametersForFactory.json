@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "demodf2023"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"ls_1_accountKey": {
+			"value": ""
+		},
+		"ls_adls_1_accountKey": {
+			"value": ""
+		},
+		"ls_csv_pizza_accountKey": {
+			"value": ""
+		},
+		"ls_csv_superstore_data_accountKey": {
+			"value": ""
+		},
+		"ls_poc_cl_accountKey": {
+			"value": ""
+		},
+		"ls_poc_superstore_adls_json_accountKey": {
+			"value": ""
+		},
+		"ls_sql_data_connectionString": {
+			"value": ""
+		},
+		"ls_sql_pizza_connectionString": {
+			"value": ""
+		},
+		"ls_1_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_adls_1_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_csv_pizza_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_csv_superstore_data_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_poc_cl_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_poc_superstore_adls_json_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net/"
+		}
+	}
+}
