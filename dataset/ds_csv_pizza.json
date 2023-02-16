@@ -10,10 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "abcd.cs",
-					"type": "Expression"
-				},
+				"fileName": "part-00000-tid-3559077593015423063-7f31acf5-2e74-44fa-a7c4-194eaad2a4b4-74-1-c000.csv",
 				"folderPath": "Cleansed/Pizza.csv",
 				"fileSystem": "poc1"
 			},
