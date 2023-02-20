@@ -1,0 +1,16 @@
+{
+	"name": "ds_api_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_api_file",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			}
+		}
+	}
+}

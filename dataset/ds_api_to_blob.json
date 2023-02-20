@@ -1,0 +1,19 @@
+{
+	"name": "ds_api_to_blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_api_to_blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "abc1.py",
+				"folderPath": "raw",
+				"fileSystem": "practicecon"
+			}
+		}
+	}
+}
