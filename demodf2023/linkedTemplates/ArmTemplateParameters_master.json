@@ -14,6 +14,9 @@
 		"ls_adls_1_accountKey": {
 			"value": ""
 		},
+		"ls_api_to_blob_accountKey": {
+			"value": ""
+		},
 		"ls_csv_pizza_accountKey": {
 			"value": ""
 		},
@@ -24,6 +27,9 @@
 			"value": ""
 		},
 		"ls_poc_superstore_adls_json_accountKey": {
+			"value": ""
+		},
+		"ls_sink_1_connectionString": {
 			"value": ""
 		},
 		"ls_sql_data_connectionString": {
@@ -38,6 +44,12 @@
 		"ls_adls_1_properties_typeProperties_url": {
 			"value": "https://demosta2023.dfs.core.windows.net/"
 		},
+		"ls_api_file_properties_typeProperties_url": {
+			"value": "https://github.com/srummelil/tst-data-store/blob/master/ftest.py"
+		},
+		"ls_api_to_blob_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net"
+		},
 		"ls_csv_pizza_properties_typeProperties_url": {
 			"value": "https://demosta2023.dfs.core.windows.net/"
 		},
@@ -49,6 +61,12 @@
 		},
 		"ls_poc_superstore_adls_json_properties_typeProperties_url": {
 			"value": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_rest_properties_typeProperties_url": {
+			"value": "https://dummy.restapiexample.com/api/v1/employees"
+		},
+		"ls_rest_1_properties_typeProperties_url": {
+			"value": "https://dummy.restapiexample.com/api/v1/employees"
 		},
 		"containerUri": {
 			"value": ""
