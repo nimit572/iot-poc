@@ -1,0 +1,27 @@
+{
+	"name": "ds_sourcefolder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sourcefolder",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"folderPath": "Source",
+				"fileSystem": "practicecon"
+			}
+		}
+	}
+}
