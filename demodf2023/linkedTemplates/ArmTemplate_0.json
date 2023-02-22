@@ -39,9 +39,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_poc_superstore_adls_json'"
 		},
+		"ls_sink_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_sink'"
+		},
 		"ls_sink_1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sink_1'"
+		},
+		"ls_sourcefolder_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_sourcefolder'"
 		},
 		"ls_sql_data_connectionString": {
 			"type": "secureString",
@@ -90,6 +98,14 @@
 		"ls_rest_1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://dummy.restapiexample.com/api/v1/employees"
+		},
+		"ls_sink_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_sourcefolder_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -274,6 +290,23 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_sink')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_sink_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_sink_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ls_sink_1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -282,6 +315,23 @@
 				"type": "AzureTableStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('ls_sink_1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_sourcefolder')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_sourcefolder_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_sourcefolder_accountKey')]"
+					}
 				}
 			},
 			"dependsOn": []
@@ -498,133 +548,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_rest_1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_sql_data')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_sql_data",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "messageId",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "deviceid",
-						"type": "varchar"
-					},
-					{
-						"name": "temprature",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "humidity",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "EventProcessedUtcTime",
-						"type": "varchar"
-					},
-					{
-						"name": "PartitionId",
-						"type": "varchar"
-					},
-					{
-						"name": "EventEnqueuedUtcTime",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "iotdata"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_sql_data')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_sql_pizza')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_sql_pizza",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "Pizzaid",
-						"type": "varchar"
-					},
-					{
-						"name": "PizzaTid",
-						"type": "varchar"
-					},
-					{
-						"name": "P_Name",
-						"type": "varchar"
-					},
-					{
-						"name": "P_Category",
-						"type": "varchar"
-					},
-					{
-						"name": "Ingredients",
-						"type": "varchar"
-					},
-					{
-						"name": "P_Size",
-						"type": "varchar"
-					},
-					{
-						"name": "P_Price",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "Orderid",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Order_detid",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Quantity",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "P_date",
-						"type": "date"
-					},
-					{
-						"name": "T_Time",
-						"type": "varchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "pizza"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_sql_pizza')]"
 			]
 		}
 	]

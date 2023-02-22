@@ -39,9 +39,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_poc_superstore_adls_json'"
 		},
+		"ls_sink_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_sink'"
+		},
 		"ls_sink_1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sink_1'"
+		},
+		"ls_sourcefolder_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_sourcefolder'"
 		},
 		"ls_sql_data_connectionString": {
 			"type": "secureString",
@@ -90,6 +98,14 @@
 		"ls_rest_1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://dummy.restapiexample.com/api/v1/employees"
+		},
+		"ls_sink_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_sourcefolder_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -142,8 +158,14 @@
 					"ls_poc_superstore_adls_json_accountKey": {
 						"value": "[parameters('ls_poc_superstore_adls_json_accountKey')]"
 					},
+					"ls_sink_accountKey": {
+						"value": "[parameters('ls_sink_accountKey')]"
+					},
 					"ls_sink_1_connectionString": {
 						"value": "[parameters('ls_sink_1_connectionString')]"
+					},
+					"ls_sourcefolder_accountKey": {
+						"value": "[parameters('ls_sourcefolder_accountKey')]"
 					},
 					"ls_sql_data_connectionString": {
 						"value": "[parameters('ls_sql_data_connectionString')]"
@@ -180,6 +202,12 @@
 					},
 					"ls_rest_1_properties_typeProperties_url": {
 						"value": "[parameters('ls_rest_1_properties_typeProperties_url')]"
+					},
+					"ls_sink_properties_typeProperties_url": {
+						"value": "[parameters('ls_sink_properties_typeProperties_url')]"
+					},
+					"ls_sourcefolder_properties_typeProperties_url": {
+						"value": "[parameters('ls_sourcefolder_properties_typeProperties_url')]"
 					}
 				}
 			},
