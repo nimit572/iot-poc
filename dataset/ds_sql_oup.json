@@ -1,0 +1,23 @@
+{
+	"name": "ds_sql_oup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_op",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
+		}
+	}
+}
