@@ -31,6 +31,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_csv_superstore_data'"
 		},
+		"ls_getmeta_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_getmeta'"
+		},
+		"ls_poc1_inp_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_poc1_inp'"
+		},
 		"ls_poc_cl_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_poc_cl'"
@@ -54,6 +62,10 @@
 		"ls_sql_data_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sql_data'"
+		},
+		"ls_sql_op_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql_op'"
 		},
 		"ls_sql_pizza_connectionString": {
 			"type": "secureString",
@@ -80,6 +92,14 @@
 			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
 		},
 		"ls_csv_superstore_data_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_getmeta_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_poc1_inp_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
 		},
@@ -226,6 +246,40 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_getmeta')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_getmeta_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_getmeta_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_poc1_inp')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_poc1_inp_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_poc1_inp_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ls_poc_cl')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -350,6 +404,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_sql_op')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_sql_op_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ls_sql_pizza')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -380,174 +447,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_sink_1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_csv_pizza')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_csv_pizza",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "part-00000-tid-3559077593015423063-7f31acf5-2e74-44fa-a7c4-194eaad2a4b4-74-1-c000.csv",
-						"folderPath": "Cleansed/Pizza.csv",
-						"fileSystem": "poc1"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Pizzaid",
-						"type": "String"
-					},
-					{
-						"name": "PizzaTid",
-						"type": "String"
-					},
-					{
-						"name": "P_Name",
-						"type": "String"
-					},
-					{
-						"name": "P_Category",
-						"type": "String"
-					},
-					{
-						"name": "Ingredients",
-						"type": "String"
-					},
-					{
-						"name": "P_Size",
-						"type": "String"
-					},
-					{
-						"name": "P_Price",
-						"type": "String"
-					},
-					{
-						"name": "Orderid",
-						"type": "String"
-					},
-					{
-						"name": "Order_detid",
-						"type": "String"
-					},
-					{
-						"name": "Quantity",
-						"type": "String"
-					},
-					{
-						"name": "P_date",
-						"type": "String"
-					},
-					{
-						"name": "T_Time",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_csv_pizza')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_json_adls')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_adls_1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Json",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@concat(formatDateTime(utcNow(),'yyyy'),'/',formatDateTime(utcNow(),'MM'),'/',formatDateTime(utcNow(),'dd'))",
-							"type": "Expression"
-						},
-						"fileSystem": "rawdata"
-					}
-				},
-				"schema": {
-					"type": "object",
-					"properties": {
-						"messageId": {
-							"type": "integer"
-						},
-						"deviceId": {
-							"type": "string"
-						},
-						"temperature": {
-							"type": "number"
-						},
-						"humidity": {
-							"type": "number"
-						},
-						"EventProcessedUtcTime": {
-							"type": "string"
-						},
-						"PartitionId": {
-							"type": "integer"
-						},
-						"EventEnqueuedUtcTime": {
-							"type": "string"
-						},
-						"IoTHub": {
-							"type": "object",
-							"properties": {
-								"MessageId": {
-									"type": "null"
-								},
-								"CorrelationId": {
-									"type": "null"
-								},
-								"ConnectionDeviceId": {
-									"type": "string"
-								},
-								"ConnectionDeviceGenerationId": {
-									"type": "string"
-								},
-								"EnqueuedTime": {
-									"type": "string"
-								}
-							}
-						}
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_adls_1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_rest')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_rest_1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_rest_1')]"
 			]
 		}
 	]

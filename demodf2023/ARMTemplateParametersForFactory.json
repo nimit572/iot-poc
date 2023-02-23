@@ -23,6 +23,12 @@
 		"ls_csv_superstore_data_accountKey": {
 			"value": ""
 		},
+		"ls_getmeta_accountKey": {
+			"value": ""
+		},
+		"ls_poc1_inp_accountKey": {
+			"value": ""
+		},
 		"ls_poc_cl_accountKey": {
 			"value": ""
 		},
@@ -39,6 +45,9 @@
 			"value": ""
 		},
 		"ls_sql_data_connectionString": {
+			"value": ""
+		},
+		"ls_sql_op_connectionString": {
 			"value": ""
 		},
 		"ls_sql_pizza_connectionString": {
@@ -60,6 +69,12 @@
 			"value": "https://demosta2023.dfs.core.windows.net/"
 		},
 		"ls_csv_superstore_data_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_getmeta_properties_typeProperties_url": {
+			"value": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_poc1_inp_properties_typeProperties_url": {
 			"value": "https://demosta2023.dfs.core.windows.net/"
 		},
 		"ls_poc_cl_properties_typeProperties_url": {

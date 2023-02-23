@@ -31,6 +31,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_csv_superstore_data'"
 		},
+		"ls_getmeta_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_getmeta'"
+		},
+		"ls_poc1_inp_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_poc1_inp'"
+		},
 		"ls_poc_cl_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_poc_cl'"
@@ -54,6 +62,10 @@
 		"ls_sql_data_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sql_data'"
+		},
+		"ls_sql_op_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql_op'"
 		},
 		"ls_sql_pizza_connectionString": {
 			"type": "secureString",
@@ -80,6 +92,14 @@
 			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
 		},
 		"ls_csv_superstore_data_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_getmeta_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
+		},
+		"ls_poc1_inp_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://demosta2023.dfs.core.windows.net/"
 		},
@@ -152,6 +172,12 @@
 					"ls_csv_superstore_data_accountKey": {
 						"value": "[parameters('ls_csv_superstore_data_accountKey')]"
 					},
+					"ls_getmeta_accountKey": {
+						"value": "[parameters('ls_getmeta_accountKey')]"
+					},
+					"ls_poc1_inp_accountKey": {
+						"value": "[parameters('ls_poc1_inp_accountKey')]"
+					},
 					"ls_poc_cl_accountKey": {
 						"value": "[parameters('ls_poc_cl_accountKey')]"
 					},
@@ -169,6 +195,9 @@
 					},
 					"ls_sql_data_connectionString": {
 						"value": "[parameters('ls_sql_data_connectionString')]"
+					},
+					"ls_sql_op_connectionString": {
+						"value": "[parameters('ls_sql_op_connectionString')]"
 					},
 					"ls_sql_pizza_connectionString": {
 						"value": "[parameters('ls_sql_pizza_connectionString')]"
@@ -190,6 +219,12 @@
 					},
 					"ls_csv_superstore_data_properties_typeProperties_url": {
 						"value": "[parameters('ls_csv_superstore_data_properties_typeProperties_url')]"
+					},
+					"ls_getmeta_properties_typeProperties_url": {
+						"value": "[parameters('ls_getmeta_properties_typeProperties_url')]"
+					},
+					"ls_poc1_inp_properties_typeProperties_url": {
+						"value": "[parameters('ls_poc1_inp_properties_typeProperties_url')]"
 					},
 					"ls_poc_cl_properties_typeProperties_url": {
 						"value": "[parameters('ls_poc_cl_properties_typeProperties_url')]"
